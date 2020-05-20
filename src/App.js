@@ -17,6 +17,7 @@ function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [job, setJob] = useState({ label: "Select...", value: 0 });
@@ -56,6 +57,18 @@ function App() {
     );
   }
 
+  function phoneMask(value) {
+    if (value) {
+      return value
+        .replace(/\D/g, "")
+        .replace(/(\d{2})(\d)/, "($1) $2")
+        .replace(/(\d{4})(\d)/, "$1-$2")
+        .replace(/(\d{4})-(\d)(\d{4})/, "$1$2-$3")
+        .replace(/(-\d{4})\d+?$/, "$1");
+    }
+    return null;
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     console.log(event);
@@ -70,7 +83,7 @@ function App() {
       <Card>
         <h2>USING A UI FORM KIT</h2>
         <form onSubmit={handleSubmit}>
-          <Divider />
+          <Divider color="#424242" />
           <h3>Personal informations</h3>
           <FlexContainer>
             <InputContainer>
@@ -98,17 +111,32 @@ function App() {
               />
             </InputContainer>
           </FlexContainer>
-          <Input
-            type="password"
-            name="Password"
-            placeholder="Type your password"
-            value={password}
-            setValue={setPassword}
-            textColor="#fafafa"
-            color="#03a9f4"
-            floatingLabel={true}
-          />
-          <Divider />
+          <FlexContainer>
+            <InputContainer>
+              <Input
+                type="password"
+                name="Password"
+                placeholder="Type your password"
+                value={password}
+                setValue={setPassword}
+                textColor="#fafafa"
+                color="#03a9f4"
+                floatingLabel={true}
+              />
+            </InputContainer>
+            <InputContainer>
+              <Input
+                name="Phone"
+                placeholder="With DDD"
+                value={phoneMask(phone)}
+                setValue={setPhone}
+                textColor="#fafafa"
+                color="#03a9f4"
+                floatingLabel={true}
+              />
+            </InputContainer>
+          </FlexContainer>
+          <Divider color="#424242" />
           <h3>Professional informations</h3>
           <div style={{ width: "100%", maxWidth: 728, minWidth: 290 }}>
             <SelectDropdown
@@ -143,6 +171,20 @@ function App() {
             }}
           >
             <div style={{ width: "45%" }}>
+              <h4>- Experience in job</h4>
+              {xpOptions.map((item) => (
+                <Radio
+                  name="radio"
+                  key={item.id}
+                  label={item.value}
+                  value={item.value}
+                  checked={xpTime === item.id}
+                  onChange={() => setTime(Number(item.id))}
+                  color="#03a9f4"
+                />
+              ))}
+            </div>
+            <div style={{ width: "45%" }}>
               <h4>- Currently employed?</h4>
               <SwitchContainer>
                 <Switch
@@ -156,20 +198,6 @@ function App() {
                   {employee ? "Yes" : "No"}
                 </SwitchInfo>
               </SwitchContainer>
-            </div>
-            <div style={{ width: "45%" }}>
-              <h4>- Experience in job</h4>
-              {xpOptions.map((item) => (
-                <Radio
-                  name="radio"
-                  key={item.id}
-                  label={item.value}
-                  value={item.value}
-                  checked={xpTime === item.id}
-                  onChange={() => setTime(Number(item.id))}
-                  color="#03a9f4"
-                />
-              ))}
             </div>
           </div>
           <Button
