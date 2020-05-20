@@ -8597,9 +8597,9 @@ react-error-overlay@^6.0.7:
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
 react-ian-form-kit@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/react-ian-form-kit/-/react-ian-form-kit-1.0.4.tgz#5d0b1d7b352db3a09518aa54a82e14a30ce94d20"
-  integrity sha512-MKDyjulHUU1D9tBg8Cv97hwhDoPJOQhPmg8QsA7kgLAglm8aQ7umV0JR2VBYf7oCQhcs71kQwGzQEVwNzrYLWA==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-ian-form-kit/-/react-ian-form-kit-1.0.7.tgz#746ce2183682d281d992d73a8409a6d8e730f2ae"
+  integrity sha512-KnSU0tcheIHmU9aM37MFHi0RIPew9AYqlPSf5AHJnVRVoHzzgtn7rnlXMpIR7o/l1w+xYpOiLUeRxvp4/WUxHg==
   dependencies:
     polished "^3.6.2"
     react-icons "^3.10.0"
