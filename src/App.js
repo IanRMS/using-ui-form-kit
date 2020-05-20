@@ -66,7 +66,7 @@ function App() {
         .replace(/(\d{4})-(\d)(\d{4})/, "$1$2-$3")
         .replace(/(-\d{4})\d+?$/, "$1");
     }
-    return null;
+    return "";
   }
 
   function handleSubmit(event) {
